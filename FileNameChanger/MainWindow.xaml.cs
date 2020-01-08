@@ -198,6 +198,8 @@ namespace FileNameChanger
             }
             ShowTip("替换完成");
             changeFileDic.Clear();
+            SetOutPutContent(new List<string>());
+            SetTargetContent(new List<string>());
         }
 
         private void SaveToButton_Click(object sender, RoutedEventArgs e)
@@ -214,6 +216,8 @@ namespace FileNameChanger
                     }
                     ShowTip("替换完成");
                     changeFileDic.Clear();
+                    SetOutPutContent(new List<string>());
+                    SetTargetContent(new List<string>());
                 }
             }
         }

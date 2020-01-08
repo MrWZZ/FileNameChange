@@ -10,7 +10,6 @@ E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\obj\Debug\MainWindow.baml
 E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\obj\Debug\FileNameChanger.g.resources
 E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\obj\Debug\FileNameChanger.Properties.Resources.resources
 E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\obj\Debug\FileNameChanger.csproj.GenerateResource.cache
-E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\obj\Debug\FileNameChanger.csproj.CoreCompileInputs.cache
 E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\obj\Debug\FileNameChanger.exe
 E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\obj\Debug\FileNameChanger.pdb
 E:\WzzWorkSpace\git\FileNameChanger\FileNameChanger\bin\Debug\Microsoft.WindowsAPICodePack.dll
