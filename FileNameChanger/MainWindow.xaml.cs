@@ -193,8 +193,15 @@ namespace FileNameChanger
         {
             foreach (var item in changeFileDic)
             {
-                File.Copy(item.Value.FullName, $"{item.Value.DirectoryName}\\{item.Key}", true);
-                File.Delete(item.Value.FullName);
+                if (item.Value.FullName == $"{item.Value.DirectoryName}\\{item.Key}")
+                {
+                    continue;
+                }
+                else
+                {
+                    File.Copy(item.Value.FullName, $"{item.Value.DirectoryName}\\{item.Key}", true);
+                    File.Delete(item.Value.FullName);
+                }
             }
             ShowTip("替换完成");
             changeFileDic.Clear();
@@ -368,7 +375,7 @@ namespace FileNameChanger
         {
             changeFileDic.Clear();
             List<string> changeList = new List<string>();
-            foreach (var item in curAllFileInfoList)
+            foreach (var item in curSelectFileInfoList)
             {
                 string changeName = "";
                 if (isAll)
@@ -398,16 +405,20 @@ namespace FileNameChanger
 
         private void SelectTargetFilesByRegex(Regex re)
         {
-            curSelectFileInfoList.Clear();
+            List<FileInfo> selectList = new List<FileInfo>();
             List<string> fixTypeList = new List<string>();
-            foreach (var item in curAllFileInfoList)
+            foreach (var item in curSelectFileInfoList)
             {
                 if (re.IsMatch(item.Name))
                 {
                     fixTypeList.Add(item.Name);
-                    curSelectFileInfoList.Add(item);
+                    selectList.Add(item);
                 }
             }
+
+            curSelectFileInfoList.Clear();
+            curSelectFileInfoList.AddRange(selectList);
+
             SetTargetContent(fixTypeList);
         }
 
@@ -427,16 +438,20 @@ namespace FileNameChanger
 
         private void SelectTargetFilesByType(List<string> typePattern)
         {
-            curSelectFileInfoList.Clear();
+            List<FileInfo> selectList = new List<FileInfo>();
             List<string> fixTypeList = new List<string>();
-            foreach (var item in curAllFileInfoList)
+            foreach (var item in curSelectFileInfoList)
             {
                 if(typePattern.IndexOf(item.Extension) > -1)
                 {
                     fixTypeList.Add(item.Name);
-                    curSelectFileInfoList.Add(item);
+                    selectList.Add(item);
                 }
             }
+
+            curSelectFileInfoList.Clear();
+            curSelectFileInfoList.AddRange(selectList);
+
             SetTargetContent(fixTypeList);
         }
 
