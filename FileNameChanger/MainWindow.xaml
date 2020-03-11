@@ -8,7 +8,7 @@
         AllowDrop="True"
         PreviewDrop="Window_PreviewDrop"
         PreviewDragEnter="Window_PreviewDragEnter"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="650" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"></RowDefinition>
@@ -87,6 +87,8 @@
                     
                     <GroupBox Header="文件名修改预览"  BorderBrush="Gray">
                         <StackPanel>
+                            <Button x:Name="selectTargetToView" Content="选择所有当前目标文件" Height="20" Margin="5,0,5,5" Click="selectTargetToView_Click"></Button>
+                            <Border BorderBrush="Gray" BorderThickness="0,1,0,0"></Border>
                             <TextBox Name="changeBeforeBackInput" Height="20" Margin="5,5,5,2">
                                 <TextBox.Resources>
                                     <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.4" Stretch="None" AlignmentX="Center">

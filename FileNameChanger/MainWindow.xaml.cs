@@ -229,6 +229,17 @@ namespace FileNameChanger
             }
         }
 
+        private void selectTargetToView_Click(object sender, RoutedEventArgs e)
+        {
+            changeFileDic.Clear();
+            List<string> changeList = new List<string>();
+            foreach (var item in curSelectFileInfoList)
+            {
+                changeList.Add(item.Name);
+                changeFileDic.Add(item.Name, item);
+            }
+            SetOutPutContent(changeList);
+        }
         #endregion
 
         #region 线程
@@ -511,6 +522,7 @@ namespace FileNameChanger
         }
 
         #endregion
+
 
     }
 }
