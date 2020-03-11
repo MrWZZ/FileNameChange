@@ -31,6 +31,8 @@ namespace FileNameChanger
         private bool isSelectRegexVaild = false;
         private bool isChangeRegexVaild = false;
 
+        private string[] dropPaths;
+
         public Dictionary<string, FileInfo> changeFileDic = new Dictionary<string, FileInfo>();
         public List<FileInfo> curAllFileInfoList = new List<FileInfo>();
         public List<FileInfo> curSelectFileInfoList = new List<FileInfo>();
@@ -53,7 +55,7 @@ namespace FileNameChanger
             curSelectFileInfoList.Clear();
             changeFileDic.Clear();
 
-            string[] dropPaths = (string[])e.Data.GetData(DataFormats.FileDrop);
+            dropPaths = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (var item in dropPaths)
             {
                 if (!Directory.Exists(item))
@@ -112,7 +114,7 @@ namespace FileNameChanger
             }
             else
             {
-                string[] types = typePattern.Split(',');
+                string[] types = typePattern.Split(';');
                 SelectTargetFilesByType(types.ToList());
             }
         }
@@ -229,16 +231,41 @@ namespace FileNameChanger
             }
         }
 
-        private void selectTargetToView_Click(object sender, RoutedEventArgs e)
+        private void SaveOriginPath_Click(object sender, RoutedEventArgs e)
         {
-            changeFileDic.Clear();
-            List<string> changeList = new List<string>();
-            foreach (var item in curSelectFileInfoList)
+            using (CommonOpenFileDialog dialog = new CommonOpenFileDialog())
             {
-                changeList.Add(item.Name);
-                changeFileDic.Add(item.Name, item);
+                dialog.IsFolderPicker = true;//设置为选择文件夹
+                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                {
+                    string savePath = dialog.FileName;
+                    foreach (var item in curSelectFileInfoList)
+                    {
+                        string fileName = item.Name;
+                        //头目录删除
+                        foreach (var startPath in dropPaths)
+                        {
+                            if( item.FullName.StartsWith(startPath) )
+                            {
+                                fileName = item.FullName.Replace(startPath + "\\", "");
+                                break;
+                            }
+                        }
+
+                        string targetPath = $"{savePath}\\{fileName.Replace(item.Name,"")}";
+                        if(!Directory.Exists(targetPath))
+                        {
+                            Directory.CreateDirectory(targetPath);
+                        }
+
+                        File.Copy(item.FullName, $"{savePath}\\{fileName}", true);
+                    }
+                    ShowTip("替换完成");
+                    changeFileDic.Clear();
+                    SetOutPutContent(new List<string>());
+                    SetTargetContent(new List<string>());
+                }
             }
-            SetOutPutContent(changeList);
         }
         #endregion
 
@@ -520,6 +547,7 @@ namespace FileNameChanger
         {
             tip.Text = message;
         }
+
 
         #endregion
 

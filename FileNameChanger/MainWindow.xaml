@@ -8,7 +8,7 @@
         AllowDrop="True"
         PreviewDrop="Window_PreviewDrop"
         PreviewDragEnter="Window_PreviewDragEnter"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Height="800" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"></RowDefinition>
@@ -32,9 +32,9 @@
                     
                     <GroupBox Header="筛选目标文件" BorderBrush="Gray" BorderThickness="1">
                         <StackPanel>
-                            <Button Name="selectAllButton" Content="全部" Height="20" Margin="5" Click="SelectAllButton_Click"></Button>
+                            <Button Name="selectAllButton" Content="还原目标文件" Height="30" Margin="5" Click="SelectAllButton_Click"></Button>
                             <Border BorderBrush="Gray" BorderThickness="0,1,0,0"></Border>
-                            <TextBox Name="selectTypeText" Height="20" Margin="5,5,5,2">
+                            <TextBox Name="selectTypeText" Height="30" Margin="5,5,5,2">
                                 <TextBox.Resources>
                                     <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.4" Stretch="None" AlignmentX="Center">
                                         <VisualBrush.Visual>
@@ -55,10 +55,10 @@
                                     </Style>
                                 </TextBox.Style>
                             </TextBox>
-                            <Button Name="selectTypeButton" Content="按类型选择" Height="20" Margin="5,0,5,5" Click="SelectTypeButton_Click" ></Button>
+                            <Button Name="selectTypeButton" Content="按类型选择" Height="30" Margin="5,0,5,5" Click="SelectTypeButton_Click" ></Button>
                             <Border BorderBrush="Gray" BorderThickness="0,1,0,0"></Border>
-                            <StackPanel Orientation="Horizontal" Height="20" Margin="5,5,5,2">
-                                <TextBox Name="selectRegexTextInput" Height="20" Width="127" TextChanged="SelectRegexText_TextChanged">
+                            <StackPanel Orientation="Horizontal" Height="30" Margin="5,5,5,2">
+                                <TextBox Name="selectRegexTextInput" Height="30" Width="127" TextChanged="SelectRegexText_TextChanged">
                                     <TextBox.Resources>
                                         <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.4" Stretch="None" AlignmentX="Center">
                                             <VisualBrush.Visual>
@@ -79,17 +79,15 @@
                                         </Style>
                                     </TextBox.Style>
                                 </TextBox>
-                                <Label Name="selectRegexText"  VerticalContentAlignment="Center" FontSize="8" Height="20"/>
+                                <Label Name="selectRegexText"  VerticalContentAlignment="Center" FontSize="8" Height="30"/>
                             </StackPanel>
-                            <Button Name="selectRegexButton" Content="正则选择" Height="20" Margin="5,0,5,5" Click="SelectRegexButton_Click"></Button>
+                            <Button Name="selectRegexButton" Content="正则选择" Height="30" Margin="5,0,5,5" Click="SelectRegexButton_Click"></Button>
                         </StackPanel>
                     </GroupBox>
                     
                     <GroupBox Header="文件名修改预览"  BorderBrush="Gray">
                         <StackPanel>
-                            <Button x:Name="selectTargetToView" Content="选择所有当前目标文件" Height="20" Margin="5,0,5,5" Click="selectTargetToView_Click"></Button>
-                            <Border BorderBrush="Gray" BorderThickness="0,1,0,0"></Border>
-                            <TextBox Name="changeBeforeBackInput" Height="20" Margin="5,5,5,2">
+                            <TextBox Name="changeBeforeBackInput" Height="30" Margin="5,5,5,2">
                                 <TextBox.Resources>
                                     <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.4" Stretch="None" AlignmentX="Center">
                                         <VisualBrush.Visual>
@@ -110,11 +108,11 @@
                                     </Style>
                                 </TextBox.Style>
                             </TextBox>
-                            <Button Name="changeBeforeButton" Content="添加前缀" Height="20" Margin="5,0,5,2" Click="ChangeBeforeButton_Click"/>
-                            <Button Name="changeBackButton" Content="添加后缀" Height="20" Margin="5,0,5,5" Click="ChangeBackButton_Click"/>
+                            <Button Name="changeBeforeButton" Content="添加前缀" Height="30" Margin="5,0,5,2" Click="ChangeBeforeButton_Click"/>
+                            <Button Name="changeBackButton" Content="添加后缀" Height="30" Margin="5,0,5,5" Click="ChangeBackButton_Click"/>
                             <Border BorderBrush="Gray" BorderThickness="0,1,0,0"></Border>
-                            <StackPanel Orientation="Horizontal" Height="20" Margin="5,5,5,2">
-                                <TextBox Name="changeRegexInput" Height="20" Width="127" TextChanged="ChangeRegexInput_TextChanged">
+                            <StackPanel Orientation="Horizontal" Height="30" Margin="5,5,5,2">
+                                <TextBox Name="changeRegexInput" Height="30" Width="127" TextChanged="ChangeRegexInput_TextChanged">
                                     <TextBox.Resources>
                                         <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.4" Stretch="None" AlignmentX="Center">
                                             <VisualBrush.Visual>
@@ -135,9 +133,9 @@
                                         </Style>
                                     </TextBox.Style>
                                 </TextBox>
-                                <Label Name="changeRegexText" VerticalContentAlignment="Center" FontSize="8" Height="20"/>
+                                <Label Name="changeRegexText" VerticalContentAlignment="Center" FontSize="8" Height="30"/>
                             </StackPanel>
-                            <TextBox Name="changeRegexRepleceContent" Height="20" Margin="5,2,5,2">
+                            <TextBox Name="changeRegexRepleceContent" Height="30" Margin="5,2,5,2">
                                 <TextBox.Resources>
                                     <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.4" Stretch="None" AlignmentX="Center">
                                         <VisualBrush.Visual>
@@ -158,19 +156,26 @@
                                     </Style>
                                 </TextBox.Style>
                             </TextBox>
-                            <Button Name="changeRegexButton" Content="正则替换" Height="20" Margin="5,0,5,5" Click="ChangeRegexButton_Click"></Button>
+                            <Button Name="changeRegexButton" Content="正则替换" Height="30" Margin="5,0,5,5" Click="ChangeRegexButton_Click"></Button>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="完成修改" BorderBrush="Gray">
                         <StackPanel>
-                            <Button Name="SavePathButton" Content="修改原文件名称" Height="20" Margin="5,5,5,0" Click="SavePathButton_Click"/>
-                            <Button Name="SaveToButton" Content="复制预览文件到指定文件夹" Height="20" Margin="5" Click="SaveToButton_Click"/>
+                            <Button Name="SavePathButton" Content="修改原文件名称" Height="30" Margin="5,5,5,0" Click="SavePathButton_Click"/>
+                            <Button Name="SaveToButton" Content="复制预览文件到指定文件夹" Height="30" Margin="5" Click="SaveToButton_Click"/>
+                            <Button Height="35" Margin="5,0,5,5" Click="SaveOriginPath_Click">
+                                <Button.Content>
+                                    <StackPanel>
+                                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="将当前目标文件已原目录结构复制到指定文件夹"></TextBlock>
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="线程控制">
-                        <Button Name="canelTask" Content="停止当前正在进行的任务" Height="20" Margin="5" Click="CanelTask_Click"></Button>
+                        <Button Name="canelTask" Content="停止当前正在进行的任务" Height="30" Margin="5" Click="CanelTask_Click"></Button>
                     </GroupBox>
                     
                 </StackPanel>
